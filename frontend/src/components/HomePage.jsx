@@ -1,8 +1,14 @@
-import { Typography, Box, Grid } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Grid,
+  Card,
+  CardContent,
+} from "@mui/material";
 import React from "react";
 import Card1 from "./Card";
 import KeyOffering from "./KeyOffering";
-
+import "../Style.css";
 
 export default function HomePage() {
   return (
@@ -87,24 +93,138 @@ export default function HomePage() {
       </div>
 
       <Typography
+        variant="h3"
+        align="center"
+        marginBottom={4}
+        fontFamily="serif"
+        fontWeight={100}
+        textTransform={"uppercase"}
+        marginY={5}
+      >
+        Key Offerings
+      </Typography>
+      <Box sx={{ flexGrow: 1 }} display="block">
+        <Grid container>
+          <KeyOffering />
+          <KeyOffering />
+          <KeyOffering />
+          <KeyOffering />
+        </Grid>
+      </Box>
+
+      <div className=" mb-5 text-center">
+        <Typography
           variant="h3"
           align="center"
           marginBottom={4}
           fontFamily="serif"
           fontWeight={100}
-          textTransform={"uppercase"}
           marginY={5}
         >
-          Key Offerings
+          USPs
         </Typography>
-        <Box sx={{ flexGrow: 1 }} display="block">
+        <div>
           <Grid container>
-        <KeyOffering />
-        <KeyOffering />
-        <KeyOffering />
-        <KeyOffering />
-        </Grid>
-      </Box>
+            <Grid item xs={12} md={3} sm={6} display={"flex"} justifyContent='space-evenly'>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  margin: "5px",
+                  border: "none",
+                  boxShadow: "none",
+                }}
+              >
+                <img
+                  src="https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_ba3d98c6-363a-44ce-ba07-5319d9b58d9a_512x512.png?v=1637928592"
+                  height={100}
+                  alt=""
+                />
+                <CardContent>
+                  <Typography variant="h6" textTransform={"uppercase"}>
+                    SPECIALITY COFFEE
+                  </Typography>
+                  <Typography variant="p">
+                    Speciality grade coffees that’s rated above 80+ on taste
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={3} sm={6} display={"flex"}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  margin: "5px",
+                  border: "none",
+                  boxShadow: "none",
+                }}
+              >
+                <img
+                  src="https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_2_512x512.png?v=1637928718"
+                  height={100}
+                  alt=""
+                />
+                <CardContent>
+                  <Typography variant="h6" textTransform={"uppercase"}>
+                    ROASTED FRESH
+                  </Typography>
+                  <Typography variant="p">
+                    Freshly roasted, direct from our roastery
+                  </Typography>
+                </CardContent>
+                \
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={3} sm={6} display={"flex"}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  margin: "5px",
+                  border: "none",
+                  boxShadow: "none",
+                }}
+              >
+                <img
+                  src="https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_1_512x512.png?v=1637928677"
+                  height={100}
+                  alt=""
+                />
+                <CardContent>
+                  <Typography variant="h6" textTransform={"uppercase"}>
+                    RESPONSIBLY SOURCED
+                  </Typography>
+                  <Typography variant="p">
+                    Organic and biodiverse coffee partners
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={3} sm={6} display={"flex"}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  margin: "5px",
+                  border: "none",
+                  boxShadow: "none",
+                }}
+              >
+                <img
+                  src="https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_3_512x512.png?v=1637928754"
+                  height={100}
+                  alt=""
+                />
+                <CardContent>
+                  <Typography variant="h6" textTransform={"uppercase"}>
+                    DELICIOUS TASTE
+                  </Typography>
+                  <Typography variant="p">
+                    Making great taste accessible
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </div>
+      </div>
     </div>
   );
 }
