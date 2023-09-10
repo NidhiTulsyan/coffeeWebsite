@@ -1,6 +1,8 @@
 import { Typography, Box, Grid } from "@mui/material";
 import React from "react";
 import Card1 from "./Card";
+import KeyOffering from "./KeyOffering";
+
 
 export default function HomePage() {
   return (
@@ -60,10 +62,17 @@ export default function HomePage() {
       </div>
 
       <div className="mt-5 mb-5 ms-5 me-5">
-        <Typography variant="h3" align="center" marginBottom={4} fontFamily='serif' fontWeight={100}>
+        <Typography
+          variant="h3"
+          align="center"
+          marginBottom={4}
+          fontFamily="serif"
+          fontWeight={100}
+          textTransform={"uppercase"}
+        >
           Best Sellers
         </Typography>
-        <Box sx={{ flexGrow: 1 }} display="block">
+        <Box sx={{ flexGrow: 1 }} display="block" marginBottom={4}>
           <Grid container spacing={2}>
             <Card1 />
             <Card1 />
@@ -71,11 +80,31 @@ export default function HomePage() {
             <Card1 />
             <Card1 />
             <Card1 />
-            <Card1 /> 
-            <Card1 /> 
+            <Card1 />
+            <Card1 />
           </Grid>
         </Box>
       </div>
+
+      <Typography
+          variant="h3"
+          align="center"
+          marginBottom={4}
+          fontFamily="serif"
+          fontWeight={100}
+          textTransform={"uppercase"}
+          marginY={5}
+        >
+          Key Offerings
+        </Typography>
+        <Box sx={{ flexGrow: 1 }} display="block">
+          <Grid container>
+        <KeyOffering />
+        <KeyOffering />
+        <KeyOffering />
+        <KeyOffering />
+        </Grid>
+      </Box>
     </div>
   );
 }

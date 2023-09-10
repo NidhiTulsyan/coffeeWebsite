@@ -13,8 +13,8 @@ import {
 
 export default function Card1() {
   return (
-    <Grid item xs={3} md={3}>
-    <Card sx={{ maxWidth: 345,margin:'5px' }} >
+    <Grid item xs={12} md={3} sm={6}>
+    <Card sx={{ maxWidth: 345,margin:'5px',border:'none',boxShadow:'none' }} >
       <CardActionArea >
         <CardMedia
           component="img"

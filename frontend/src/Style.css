@@ -1,0 +1,37 @@
+.img-hover-zoom {
+    height: 30rem;
+    width: 22rem;
+    overflow: hidden;
+  }
+
+.img-hover-zoom--blur img {
+    transition: transform 1s, filter 1s ease-in-out;
+    filter: blur(1px);
+    transform: scale(1.2);
+  }
+  
+
+  .img-hover-zoom--blur:hover img {
+    filter: blur(0);
+    transform: scale(1);
+  }
+
+  .img-hover-zoom--blur:hover .show {
+    display: block;
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .container .content {
+    position: absolute; 
+    bottom: 40%; 
+    left: auto;
+    background: transparent; 
+    color: #000;
+  }
+  hr{
+    border: 1px solid rgb(6, 6, 6);
+  }
+  
