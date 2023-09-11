@@ -250,7 +250,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="mt-3 ms-3 me-3">
+      <div className=" ms-3 me-3">
         <Footer />
       </div>
     </div>
