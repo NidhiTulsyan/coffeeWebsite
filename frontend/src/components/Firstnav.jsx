@@ -1,23 +1,24 @@
 import React from "react";
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Typography } from "@mui/material";
 
 import styled from "@emotion/styled";
 export default function FirstNav() {
-  const StyledToolbar = styled(Toolbar)({
-    display: "flex",
-    justifyContent: "space-between",
-
+  const StyledToolbar = styled(Box)({
+    // display: "flex",
+    // justifyContent: "space-between",
     margin: "auto",
     textAlign: "center",
     color: "white",
+    height:'-1px'
   });
   return (
-    <AppBar color="firstnav" position="sticky" sx={{ height: "40px" }}>
+    <AppBar color="firstnav" position="sticky" sx={{height:'50px'}}>
       <StyledToolbar>
         <Typography
           variant="h6"
-          sx={{ marginBottom: "auto", fontSize: "16px" }}
+          sx={{ fontSize: "16px" }}
           fontWeight={100}
+          paddingBottom={2}
         >
           COD Available. Free shipping across india
         </Typography>

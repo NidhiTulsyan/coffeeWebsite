@@ -1,14 +1,9 @@
-import {
-  Typography,
-  Box,
-  Grid,
-  Card,
-  CardContent,
-} from "@mui/material";
+import { Typography, Box, Grid, Button } from "@mui/material";
 import React from "react";
 import Card1 from "./Card";
 import KeyOffering from "./KeyOffering";
 import "../Style.css";
+import Usp from "./Usp";
 
 export default function HomePage() {
   return (
@@ -112,118 +107,51 @@ export default function HomePage() {
         </Grid>
       </Box>
 
-      <div className=" mb-5 text-center">
+      <div className=" mb-5 text-center mt-3">
         <Typography
           variant="h3"
           align="center"
           marginBottom={4}
           fontFamily="serif"
           fontWeight={100}
-          marginY={5}
         >
           USPs
         </Typography>
         <div>
-          <Grid container>
-            <Grid item xs={12} md={3} sm={6} display={"flex"} justifyContent='space-evenly'>
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  margin: "5px",
-                  border: "none",
-                  boxShadow: "none",
-                }}
-              >
-                <img
-                  src="https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_ba3d98c6-363a-44ce-ba07-5319d9b58d9a_512x512.png?v=1637928592"
-                  height={100}
-                  alt=""
-                />
-                <CardContent>
-                  <Typography variant="h6" textTransform={"uppercase"}>
-                    SPECIALITY COFFEE
-                  </Typography>
-                  <Typography variant="p">
-                    Speciality grade coffees that’s rated above 80+ on taste
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={3} sm={6} display={"flex"}>
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  margin: "5px",
-                  border: "none",
-                  boxShadow: "none",
-                }}
-              >
-                <img
-                  src="https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_2_512x512.png?v=1637928718"
-                  height={100}
-                  alt=""
-                />
-                <CardContent>
-                  <Typography variant="h6" textTransform={"uppercase"}>
-                    ROASTED FRESH
-                  </Typography>
-                  <Typography variant="p">
-                    Freshly roasted, direct from our roastery
-                  </Typography>
-                </CardContent>
-                \
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={3} sm={6} display={"flex"}>
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  margin: "5px",
-                  border: "none",
-                  boxShadow: "none",
-                }}
-              >
-                <img
-                  src="https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_1_512x512.png?v=1637928677"
-                  height={100}
-                  alt=""
-                />
-                <CardContent>
-                  <Typography variant="h6" textTransform={"uppercase"}>
-                    RESPONSIBLY SOURCED
-                  </Typography>
-                  <Typography variant="p">
-                    Organic and biodiverse coffee partners
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={3} sm={6} display={"flex"}>
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  margin: "5px",
-                  border: "none",
-                  boxShadow: "none",
-                }}
-              >
-                <img
-                  src="https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_3_512x512.png?v=1637928754"
-                  height={100}
-                  alt=""
-                />
-                <CardContent>
-                  <Typography variant="h6" textTransform={"uppercase"}>
-                    DELICIOUS TASTE
-                  </Typography>
-                  <Typography variant="p">
-                    Making great taste accessible
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+          <Grid container spacing={2} marginBottom={4}>
+            <Usp src={"https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_ba3d98c6-363a-44ce-ba07-5319d9b58d9a_512x512.png?v=1637928592"} t1={"SPECIALITY COFFEE"} t2={"Speciality grade coffees that’s rated above 80+ on taste"}/>
+            <Usp src={"https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_2_512x512.png?v=1637928718"} t1={"  ROASTED FRESH"} t2={"  Freshly roasted, direct from our roastery"}/>
+            <Usp src={"https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_1_512x512.png?v=1637928677"} t1={"RESPONSIBLY SOURCED"} t2={" Organic and biodiverse coffee partners"}/>
+            <Usp src={"https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_3_512x512.png?v=1637928754"} t1={" DELICIOUS TASTE"} t2={" Making great taste accessible"}/>
           </Grid>
         </div>
+      </div>
+{/* https://www.roasterycoffee.co.in/cdn/shop/files/kol-cafe003_675x400_crop_center.jpg?v=1638947457 */}
+      <div>
+      <Box className="ms-4 me-4 mb-5 container" >
+        <img src="https://www.roasterycoffee.co.in/cdn/shop/files/kol-cafe003_675x400_crop_center.jpg?v=1638947457" width='100%' height='40rem' />
+        
+        <div class="content text-center">
+            <Typography
+              variant="h2"
+              fontSize={30}
+              sx={{ color: "white" }}
+              fontFamily={"serif"}
+              position="static"
+            >
+              OUR CAFE
+            </Typography>
+            <Button
+              size="medium"
+              sx={{ color: "black", display: "none" }}
+              className="show"
+              variant="outlined"
+            >
+              Shop Now
+            </Button>
+            <hr />
+          </div>
+      </Box>
       </div>
     </div>
   );

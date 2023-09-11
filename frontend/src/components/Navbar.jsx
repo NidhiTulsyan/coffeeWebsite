@@ -1,10 +1,11 @@
 import React from "react";
 import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
-import CoffeeIcon from "@mui/icons-material/Coffee";
+
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import styled from "@emotion/styled";
+
 export default function Navbar() {
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
@@ -12,15 +13,27 @@ export default function Navbar() {
     fontSize: "25px",
     color: "white",
     marginRight: "4px",
-    marginTop: "1%",
+    // marginTop: "1%",
   });
   return (
-    <AppBar color="nav" position="sticky" sx={{ height: "100px" }}>
+    <AppBar color="nav" position="static" sx={{ height: "100px" }}>
       <StyledToolbar>
         <Box flex={3}>
-          <IconButton>
+          {/* <IconButton>
             <CoffeeIcon sx={{ color: "white" }} fontSize="large" />
-          </IconButton>
+          </IconButton> */}
+          {/* <CardMedia
+          component="img"
+          height="50"
+          width={50}
+          image='https://www.roasterycoffee.co.in/cdn/shop/files/cropped-AnyConv-removebg-preview1-1.png?v=1635507881'
+          alt=""
+          
+        /> */}
+          <img
+            src="https://www.roasterycoffee.co.in/cdn/shop/files/cropped-AnyConv-removebg-preview1-1.png?v=1635507881"
+            width={100}
+          />
         </Box>
 
         <Box flex={6} sx={{ display: "flex", justifyContent: "space-evenly" }}>
