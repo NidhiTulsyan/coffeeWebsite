@@ -14,6 +14,9 @@ export default createTheme({
     nav: {
       main: '#000000',
     },
+    btncafe:{
+      main:'#fff'
+    },
     error: {
       main: '#fff',
     },

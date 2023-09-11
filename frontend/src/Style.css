@@ -35,5 +35,46 @@
     border: 1px solid rgb(6, 6, 6);
   }
 
- 
+ .ourCafeContainer{
+  position: relative;
+ }
+.ourCafeContainer .cafeContent{
+  position: absolute; 
+    top: 25%; 
+    /* left: 20%; */
+    margin:0 30%;
+    background: transparent; 
+    color: #000;
+} 
+
+.btnHover:hover{
+  border : 1px solid white;
+  color: white;
+}
+.readbtn:hover{
+  border : 1px solid black;
+color:#000;
+cursor:pointer;
+}
+
+.subscribeImage{
+  position: relative;
+}
+.subscribeImage .sub{
+  position: absolute; 
+  text-align: center;
+  top: 25%; 
+  left: 30%;
+  /* margin:auto; */
+  background: transparent; 
+  color: #fff;
+  /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  font-family:  serif;
+}
+
+.subbtn:hover{
+  border : 1px solid rgb(250, 247, 247);
+  color:#fff;
+  cursor:pointer;
   
+}
