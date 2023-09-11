@@ -1,8 +1,9 @@
 import express from 'express';
-import { signUp } from '../Controllers/userController.js';
+import { login, signUp } from '../Controllers/userController.js';
 const userRouter = express.Router();
 
-userRouter.get('/signup',signUp);
+userRouter.post('/signup',signUp);
+userRouter.post('/login',login);
 userRouter.get('/',(req,res)=>{
     res.json({"message":"hello"});
 });
