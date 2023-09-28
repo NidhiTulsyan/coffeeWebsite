@@ -5,13 +5,13 @@ import KeyOffering from "./KeyOffering";
 import "../Style.css";
 import Usp from "./Usp";
 import Footer from "./Footer";
-import { getallcoffee } from "../api-helpers-axios/api-helpers";
+import { getallcoffee } from "../api-helpers-axios/api-helpers.js";
 
 export default function HomePage() {
-  const [product,setProduct] = useState([]);
+  const [products,setProduct] = useState([]);
   useEffect(()=>{
-getallcoffee().then((data)=>setProduct(data.coffee)).catch((err)=>console.log(err))
-console.log(product);
+getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(err))
+console.log(products);
   },[])
 
   return (
@@ -83,14 +83,16 @@ console.log(product);
         </Typography>
         <Box sx={{ flexGrow: 1 }} display="block" marginBottom={4}>
           <Grid container spacing={2}>
+          {products.map((item,index)=>(
+            
+            <Card1  key={item._id} title={item.title} desc={item.description} price={item.price} url={item.productUrl} />
+          ))}
+            {/* <Card1 />
             <Card1 />
             <Card1 />
             <Card1 />
             <Card1 />
-            <Card1 />
-            <Card1 />
-            <Card1 />
-            <Card1 />
+            <Card1 /> */}
           </Grid>
         </Box>
       </div>

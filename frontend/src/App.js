@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Theme from "./Theme";
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,8 +16,6 @@ function App() {
         <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/login" element={<Login />}/>
-        
-
         </Routes>
       </div>
     </ThemeProvider>

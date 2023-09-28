@@ -10,23 +10,26 @@ import {
   Typography,
 } from "@mui/material";
 
-export default function Card1() {
+export default function Card1(props) {
   return (
     <Grid item xs={12} md={3} sm={6}>
     <Card sx={{ maxWidth: 345,margin:'5px',border:'none',boxShadow:'none' }} >
       <CardActionArea >
         <CardMedia
           component="img"
-          height="auto"
-          image="https://www.roasterycoffee.co.in/cdn/shop/products/roastery-espresso-milk-blend1-scaled.jpg?v=1634210318"
+          height="250px"
+          // image="https://www.roasterycoffee.co.in/cdn/shop/products/roastery-espresso-milk-blend1-scaled.jpg?v=1634210318"
+          image={props.url}
+          
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" textAlign="center" fontFamily='Sans' fontSize='large'>
-          Baarbara Estate - Pineapple Process
+          {/* Baarbara Estate - Pineapple Process */}
+          {props.title}
           </Typography>
           <Typography variant="body2" textAlign="center" sx={{color:'#b8784e'}}>
-           Rs.500
+          {props.price}
           </Typography>
         </CardContent>
       </CardActionArea>
