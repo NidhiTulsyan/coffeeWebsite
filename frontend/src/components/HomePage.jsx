@@ -1,4 +1,4 @@
-import { Typography, Box, Grid, Button, TextField } from "@mui/material";
+import { Typography, Box, Grid, Button } from "@mui/material";
 import React from "react";
 import Card1 from "./Card";
 import KeyOffering from "./KeyOffering";
@@ -19,14 +19,14 @@ export default function HomePage() {
             <img
               src="https://www.roasterycoffee.co.in/cdn/shop/files/Noida-cafe001_675x400_crop_center.jpg?v=1642240129"
               className="d-block w-100"
-              alt="..."
+              alt="alter"
             />
           </div>
           <div className="carousel-item" data-bs-interval="2000">
             <img
               src="https://sixteengrams.com/uploads/447b28942842d276bc94001769705843.png"
               className="d-block w-100"
-              alt="..."
+              alt="alter"
             />
           </div>
           <div className="carousel-item">
@@ -157,6 +157,7 @@ export default function HomePage() {
           <img
             src="https://www.roasterycoffee.co.in/cdn/shop/files/imgpsh_fullsize_anim_14.png?v=1640353065"
             width="100%"
+            alt=".."
             style={{ height: "50rem" }}
           />
 
@@ -225,6 +226,7 @@ export default function HomePage() {
           src="//www.roasterycoffee.co.in/cdn/shop/files/cup-coffee-with-pile-coffee-beans.jpg?v=1636445116"
           height={260}
           width="100%"
+          alt=".."
         />
         <div className="sub">
           <Typography variant="h4" textTransform={"uppercase"}>
@@ -250,7 +252,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className=" ms-3 me-3">
+      <div className=" ms-3 me-3 p-3">
         <Footer />
       </div>
     </div>
