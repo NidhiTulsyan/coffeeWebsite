@@ -1,12 +1,19 @@
 import { Typography, Box, Grid, Button } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card1 from "./Card";
 import KeyOffering from "./KeyOffering";
 import "../Style.css";
 import Usp from "./Usp";
 import Footer from "./Footer";
+import { getallcoffee } from "../api-helpers-axios/api-helpers";
 
 export default function HomePage() {
+  const [product,setProduct] = useState([]);
+  useEffect(()=>{
+getallcoffee().then((data)=>setProduct(data.coffee)).catch((err)=>console.log(err))
+console.log(product);
+  },[])
+
   return (
     <div>
       <div

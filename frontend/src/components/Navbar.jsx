@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const StyledToolbar = styled(Toolbar)({
@@ -18,22 +19,13 @@ export default function Navbar() {
   return (
     <AppBar color="nav" position="static" sx={{ height: "100px" }}>
       <StyledToolbar>
-        <Box flex={3}>
-          {/* <IconButton>
-            <CoffeeIcon sx={{ color: "white" }} fontSize="large" />
-          </IconButton> */}
-          {/* <CardMedia
-          component="img"
-          height="50"
-          width={50}
-          image='https://www.roasterycoffee.co.in/cdn/shop/files/cropped-AnyConv-removebg-preview1-1.png?v=1635507881'
-          alt=""
-          
-        /> */}
+        <Box flex={3} >
+        <Link to={'/'}>
           <img
             src="https://www.roasterycoffee.co.in/cdn/shop/files/cropped-AnyConv-removebg-preview1-1.png?v=1635507881"
             width={100}
           />
+          </Link> 
         </Box>
 
         <Box flex={6} sx={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -101,10 +93,10 @@ export default function Navbar() {
         </Box>
 
         <Box flex={3} sx={{ display: "flex", justifyContent: "end" }}>
-          <IconButton  href="login">
+          <IconButton  >
             <SearchIcon sx={{ color: "white" }} fontSize="large" />
           </IconButton>
-          <IconButton>
+          <IconButton href="login">
             <PersonOutlineIcon sx={{ color: "white" }} fontSize="large"  />
           </IconButton>
           <IconButton>

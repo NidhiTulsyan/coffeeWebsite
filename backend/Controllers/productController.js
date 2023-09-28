@@ -5,6 +5,7 @@ import Product from "../Models/Product.js";
 export const postproduct = async (req, res, next) => {
     let adminId;
     const extractedToken = req.headers.token;
+   
     if (!extractedToken && extractedToken.trim() == "") {
       res.status(400).json({ message: "token is not valid" });
     }
@@ -13,6 +14,7 @@ export const postproduct = async (req, res, next) => {
         res.status(400).json({ message: `${err.message}` });
       } else {
         adminId = decode.id;
+        console.log(adminId);
         return adminId;
       }
     });
@@ -26,10 +28,11 @@ export const postproduct = async (req, res, next) => {
         product = new Product({
         title,
         description,
-        productUrl,
+        price,
         productUrl,
         admin: adminId,
       });
+      await product.save();
     //   const session = await mongoose.startSession();
     //   let adminUser = await admin.findById(adminId);
     //   session.startTransaction();
@@ -50,3 +53,19 @@ export const postproduct = async (req, res, next) => {
       res.status(200).json({success:"added",product});
     }
   };
+
+  export const getProducts = async(req,res,next)=>{
+    let product;
+    try {
+      product = await Product.find();
+   
+    } catch (error) {
+      return next(error);
+    }
+    
+    if (!product) {
+      res.status(500).json({ message: "no coffee product found" });
+    } else {
+      res.status(200).json({product});
+    }
+  }
