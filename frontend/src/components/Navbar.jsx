@@ -14,7 +14,7 @@ export default function Navbar() {
     fontSize: "25px",
     color: "white",
     marginRight: "4px",
-    // marginTop: "1%",
+  
   });
   return (
     <AppBar color="nav" position="static" sx={{ height: "100px" }}>
@@ -24,6 +24,7 @@ export default function Navbar() {
           <img
             src="https://www.roasterycoffee.co.in/cdn/shop/files/cropped-AnyConv-removebg-preview1-1.png?v=1635507881"
             width={100}
+            alt="..."
           />
           </Link> 
         </Box>
@@ -89,7 +90,6 @@ export default function Navbar() {
           >
             About Us
           </p>
-          {/* {/* <Typography variant="p" sx={{fontSize: '14px',fontFamily: 'Quattrocento Sans',fontWeight: '500',textTransform: 'uppercase',overflow:'hidden',textOverflow:'ellipsis'}}>Coffe Beans</Typography> */}
         </Box>
 
         <Box flex={3} sx={{ display: "flex", justifyContent: "end" }}>

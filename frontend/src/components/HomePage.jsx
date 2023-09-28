@@ -11,7 +11,7 @@ export default function HomePage() {
   const [products,setProduct] = useState([]);
   useEffect(()=>{
 getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(err))
-console.log(products);
+
   },[])
 
   return (
@@ -83,16 +83,10 @@ console.log(products);
         </Typography>
         <Box sx={{ flexGrow: 1 }} display="block" marginBottom={4}>
           <Grid container spacing={2}>
-          {products.map((item,index)=>(
-            
+          {products.map((item)=>(
             <Card1  key={item._id} title={item.title} desc={item.description} price={item.price} url={item.productUrl} />
           ))}
-            {/* <Card1 />
-            <Card1 />
-            <Card1 />
-            <Card1 />
-            <Card1 />
-            <Card1 /> */}
+            
           </Grid>
         </Box>
       </div>
