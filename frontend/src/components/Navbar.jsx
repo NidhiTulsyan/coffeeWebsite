@@ -101,11 +101,11 @@ export default function Navbar() {
         </Box>
 
         <Box flex={3} sx={{ display: "flex", justifyContent: "end" }}>
-          <IconButton>
+          <IconButton  href="login">
             <SearchIcon sx={{ color: "white" }} fontSize="large" />
           </IconButton>
           <IconButton>
-            <PersonOutlineIcon sx={{ color: "white" }} fontSize="large" />
+            <PersonOutlineIcon sx={{ color: "white" }} fontSize="large"  />
           </IconButton>
           <IconButton>
             <ShoppingCartIcon sx={{ color: "white" }} fontSize="large" />
