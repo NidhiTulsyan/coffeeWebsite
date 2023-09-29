@@ -43,7 +43,7 @@ export default function Card1(props) {
           color="firstnav"
         
         >
-          Add To Cart
+          View
         </Button>
       </CardActions>
     </Card>
