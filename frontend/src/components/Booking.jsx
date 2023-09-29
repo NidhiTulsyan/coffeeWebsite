@@ -1,21 +1,28 @@
-import { Box, Button, Grid, List, ListItem, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Button, Grid, Typography } from '@mui/material'
+import React, { useEffect, useState } from 'react'
 import "../Style.css";
 import Usp from "./Usp";
 import Footer from './Footer';
+import { getcoffeebyid } from '../api-helpers-axios/api-helpers';
+import { useParams } from 'react-router-dom';
 
 export default function Booking() {
+    const id = useParams().id;
+    const [productid,setproductid] = useState();
+useEffect(()=>{
+getcoffeebyid(id).then((data)=>setproductid(data.product)).catch((err)=>console.log(err))
+},[id])
+console.log(productid);
   return (
   <>
-
-  
     <Box flexGrow={1} display={"flex"} flexDirection={"row"} justifyContent={"space-evenly"} sx={{margin:"5%"}}>
     <Box display={"flex"}>
         <Grid xs={12} sm={12} md={6} >
         <img
-              src="https://www.roasterycoffee.co.in/cdn/shop/products/roastery-espresso-blend-scaled.jpg?v=1634210314"
+            //   src="https://www.roasterycoffee.co.in/cdn/shop/products/roastery-espresso-blend-scaled.jpg?v=1634210314"
+            src={productid.productUrl}
               
-              style={{maxWidth:'469px',maxHeight:'470px'}}
+              style={{maxWidth:'500px',maxHeight:'470px'}}
               alt="logo"
         /> 
         </Grid>
@@ -24,8 +31,8 @@ export default function Booking() {
     <Box display={"flex"} flexDirection={"column"}>
     <Grid xs={12} sm={12} md={6}>
     <Box sx={{width:'70%',marginLeft:'auto'}}>
-         <Typography variant='h3' fontFamily={'serif'}>coofee name</Typography>
-         <Typography variant='h5' fontFamily={'serif'} sx={{color:'#b8784e'}}>Rs 445</Typography>
+         <Typography variant='h3' fontFamily={'serif'}>{productid.title}</Typography>
+         <Typography variant='h5' fontFamily={'serif'} sx={{color:'#b8784e'}}>Rs. {productid.price}</Typography>
          <br></br>
          <Typography variant='h6' fontFamily={'sans'}>Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team.</Typography>
          <Typography component="div" fontFamily={"serif"} >
@@ -59,7 +66,7 @@ export default function Booking() {
     <Box className="m-5 mb-5">
         <Typography variant='h5' fontFamily={'serif'} >Description</Typography>
         <hr style={{width:'8%'}}></hr>
-        <Typography variant='p' fontFamily={'serif'} fontWeight={100} fontSize={20}>Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team. Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team to create an espresso that taste like citrus, lemon, bit of sweetness, light body and super smoothe.</Typography>
+        <Typography variant='p' fontFamily={'serif'} fontWeight={100} fontSize={20}>{productid.description} Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team. Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team to create an espresso that taste like citrus, lemon, bit of sweetness, light body and super smoothe.</Typography>
     </Box>
 
     <div className=" mb-5 text-center mt-5">
@@ -107,7 +114,6 @@ export default function Booking() {
       </div>
 
       <div className=" ms-3 me-3 p-3">
-      
         <Footer />
       </div>
     </> 

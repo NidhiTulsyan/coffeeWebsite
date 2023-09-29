@@ -69,3 +69,21 @@ export const postproduct = async (req, res, next) => {
       res.status(200).json({product});
     }
   }
+  export const getProductsid = async(req,res,next)=>{
+
+    let product;
+let id = req.params.id;
+
+    try {
+      product = await Product.findById(id);
+   
+    } catch (error) {
+      return next(error);
+    }
+    
+    if (!product) {
+      res.status(500).json({ message: "no coffee product found" });
+    } else {
+      res.status(200).json({product});
+    }
+  }
