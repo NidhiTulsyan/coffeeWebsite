@@ -7,6 +7,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Link,
   Typography,
 } from "@mui/material";
 
@@ -34,6 +35,7 @@ export default function Card1(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
+      <Link to={"booking/12345"}>
         <Button
           variant="contained"
           href="#contained-buttons"
@@ -44,6 +46,7 @@ export default function Card1(props) {
         >
           Add To Cart
         </Button>
+        </Link>
       </CardActions>
     </Card>
     </Grid>

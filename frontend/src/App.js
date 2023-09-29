@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Theme from "./Theme";
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
+import Booking from "./components/Booking";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/login" element={<Login />}/>
+        <Route path="/booking/:id" element={<Booking />}/>
         </Routes>
       </div>
     </ThemeProvider>
