@@ -84,7 +84,7 @@ getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(e
         <Box sx={{ flexGrow: 1 }} display="block" marginBottom={4}>
           <Grid container spacing={2}>
           {products.map((item)=>(
-            <Card1  key={item._id} title={item.title} desc={item.description} price={item.price} url={item.productUrl} />
+            <Card1  key={item._id} id={item._id} title={item.title} desc={item.description} price={item.price} url={item.productUrl} />
           ))}
             
           </Grid>

@@ -34,11 +34,10 @@ export default function Card1(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-      <Link to={"booking/12345"}>
+      <CardActions >
         <Button
           variant="contained"
-          href="#contained-buttons"
+          href={`/booking/${props.id}`}
           size="large"
           sx={{ width: "100%",fontFamily:'serif' }}
           color="firstnav"
@@ -46,7 +45,6 @@ export default function Card1(props) {
         >
           Add To Cart
         </Button>
-        </Link>
       </CardActions>
     </Card>
     </Grid>
