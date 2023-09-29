@@ -6,6 +6,7 @@ import Theme from "./Theme";
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
 import Booking from "./components/Booking";
+import Cart from "./components/Cart";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<HomePage />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/booking/:id" element={<Booking />}/>
+        <Route path="/cart" element={<Cart />}/>
         </Routes>
       </div>
     </ThemeProvider>

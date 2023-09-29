@@ -96,10 +96,10 @@ export default function Navbar() {
           <IconButton  >
             <SearchIcon sx={{ color: "white" }} fontSize="large" />
           </IconButton>
-          <IconButton href="login">
+          <IconButton href="/login">
             <PersonOutlineIcon sx={{ color: "white" }} fontSize="large"  />
           </IconButton>
-          <IconButton>
+          <IconButton href="/cart">
             <ShoppingCartIcon sx={{ color: "white" }} fontSize="large" />
           </IconButton>
         </Box>

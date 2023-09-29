@@ -82,6 +82,7 @@ export default function Booking() {
           size="large"
           sx={{ width: "40%",fontFamily:'serif'}}
           color="firstnav"
+          href='/cart'
         >
           Add To Cart
         </Button>
