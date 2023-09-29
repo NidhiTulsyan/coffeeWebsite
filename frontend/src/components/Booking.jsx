@@ -7,21 +7,51 @@ import { getcoffeebyid } from '../api-helpers-axios/api-helpers';
 import { useParams } from 'react-router-dom';
 
 export default function Booking() {
-    const id = useParams().id;
-    const [productid,setproductid] = useState();
-useEffect(()=>{
-getcoffeebyid(id).then((data)=>setproductid(data.product)).catch((err)=>console.log(err))
-},[id])
-console.log(productid);
+    const id1 = useParams().id;
+    const [title,settitle] = useState();
+    const [price,setprice] = useState();
+    const [desc,setdesc] = useState();
+   
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/product/${id1}`, {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            settitle(data.product.title)
+            setprice(data.product.price)
+            setdesc(data.product.description)
+            
+            console.log(data);
+          })
+          .catch((error) => console.log(error));
+      }, []);
+
+
+// useEffect(()=>{
+//     fetchUserData(id1)
+// // getcoffeebyid(id).then((data)=> setproductid(data.product)).catch((err)=>console.log(err))
+// },[])
+// const fetchUserData = (id) => {
+//     fetch(`https://localhost:5000/product/${id}`)
+//       .then(response => {
+//         const d= response.json()
+//         return d;
+//       })
+//       .then(data => {
+//         setproductid(data.product)
+//       })
+//   }
+// console.log(productid);
   return (
   <>
     <Box flexGrow={1} display={"flex"} flexDirection={"row"} justifyContent={"space-evenly"} sx={{margin:"5%"}}>
     <Box display={"flex"}>
         <Grid xs={12} sm={12} md={6} >
         <img
-            //   src="https://www.roasterycoffee.co.in/cdn/shop/products/roastery-espresso-blend-scaled.jpg?v=1634210314"
-            src={productid.productUrl}
-              
+              src="https://www.roasterycoffee.co.in/cdn/shop/products/roastery-espresso-blend-scaled.jpg?v=1634210314"
+            // src={productid.productUrl}
               style={{maxWidth:'500px',maxHeight:'470px'}}
               alt="logo"
         /> 
@@ -31,8 +61,11 @@ console.log(productid);
     <Box display={"flex"} flexDirection={"column"}>
     <Grid xs={12} sm={12} md={6}>
     <Box sx={{width:'70%',marginLeft:'auto'}}>
-         <Typography variant='h3' fontFamily={'serif'}>{productid.title}</Typography>
-         <Typography variant='h5' fontFamily={'serif'} sx={{color:'#b8784e'}}>Rs. {productid.price}</Typography>
+         {/* <Typography variant='h3' fontFamily={'serif'}>{productid.title}</Typography> */}
+         <Typography variant='h3' fontFamily={'serif'}>{title}</Typography>
+         {/* <Typography variant='h3' fontFamily={'serif'}>Cofffeee</Typography> */}
+         <Typography variant='h5' fontFamily={'serif'} sx={{color:'#b8784e'}}>Rs. {price}</Typography>
+         {/* <Typography variant='h5' fontFamily={'serif'} sx={{color:'#b8784e'}}>Rs. 445</Typography> */}
          <br></br>
          <Typography variant='h6' fontFamily={'sans'}>Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team.</Typography>
          <Typography component="div" fontFamily={"serif"} >
@@ -66,7 +99,7 @@ console.log(productid);
     <Box className="m-5 mb-5">
         <Typography variant='h5' fontFamily={'serif'} >Description</Typography>
         <hr style={{width:'8%'}}></hr>
-        <Typography variant='p' fontFamily={'serif'} fontWeight={100} fontSize={20}>{productid.description} Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team. Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team to create an espresso that taste like citrus, lemon, bit of sweetness, light body and super smoothe.</Typography>
+        <Typography variant='p' fontFamily={'serif'} fontWeight={100} fontSize={20}>{desc} Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team. Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team to create an espresso that taste like citrus, lemon, bit of sweetness, light body and super smoothe.</Typography>
     </Box>
 
     <div className=" mb-5 text-center mt-5">
