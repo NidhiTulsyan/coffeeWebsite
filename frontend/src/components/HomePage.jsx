@@ -1,13 +1,13 @@
 import { Typography, Box, Grid, Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, } from "react";
 import Card1 from "./Card";
 import KeyOffering from "./KeyOffering";
 import "../Style.css";
 import Usp from "./Usp";
 import Footer from "./Footer";
 import { getallcoffee } from "../api-helpers-axios/api-helpers.js";
-
 export default function HomePage() {
+
   const [products,setProduct] = useState([]);
   useEffect(()=>{
 getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(err))
@@ -83,9 +83,9 @@ getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(e
         </Typography>
         <Box sx={{ flexGrow: 1 }} display="block" marginBottom={4}>
           <Grid container spacing={2}>
-          {products.map((item)=>(
-            <Card1  key={item._id} id={item._id} title={item.title} desc={item.description} price={item.price} url={item.productUrl} />
-          ))}
+          {products.map((item)=>{
+            <Card1  item={item} key={item._id} id={item._id} title={item.title} desc={item.description} price={item.price} url={item.productUrl} />
+          })}
             
           </Grid>
         </Box>

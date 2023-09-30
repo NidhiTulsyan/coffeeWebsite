@@ -1,16 +1,20 @@
 import { Box, Button, Grid, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "../Style.css";
 import Usp from "./Usp";
 import Footer from './Footer';
 import { getcoffeebyid } from '../api-helpers-axios/api-helpers';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import {  CartContext } from './Context';
 
-export default function Booking() {
+export default function Booking({item}) {
+  const{cart,setcart} = useContext(CartContext);
+  const navigate = useNavigate();
     const id1 = useParams().id;
     const [title,settitle] = useState();
     const [price,setprice] = useState();
     const [desc,setdesc] = useState();
+    const [url,seturl] = useState();
    
 
     useEffect(() => {
@@ -22,36 +26,21 @@ export default function Booking() {
             settitle(data.product.title)
             setprice(data.product.price)
             setdesc(data.product.description)
+            seturl(data.product.productUrl)
             
             console.log(data);
           })
           .catch((error) => console.log(error));
       }, []);
 
-
-// useEffect(()=>{
-//     fetchUserData(id1)
-// // getcoffeebyid(id).then((data)=> setproductid(data.product)).catch((err)=>console.log(err))
-// },[])
-// const fetchUserData = (id) => {
-//     fetch(`https://localhost:5000/product/${id}`)
-//       .then(response => {
-//         const d= response.json()
-//         return d;
-//       })
-//       .then(data => {
-//         setproductid(data.product)
-//       })
-//   }
-// console.log(productid);
   return (
   <>
     <Box flexGrow={1} display={"flex"} flexDirection={"row"} justifyContent={"space-evenly"} sx={{margin:"5%"}}>
     <Box display={"flex"}>
         <Grid xs={12} sm={12} md={6} >
         <img
-              src="https://www.roasterycoffee.co.in/cdn/shop/products/roastery-espresso-blend-scaled.jpg?v=1634210314"
-            // src={productid.productUrl}
+              // src="https://www.roasterycoffee.co.in/cdn/shop/products/roastery-espresso-blend-scaled.jpg?v=1634210314"
+            src={url}
               style={{maxWidth:'500px',maxHeight:'470px'}}
               alt="logo"
         /> 
@@ -61,13 +50,14 @@ export default function Booking() {
     <Box display={"flex"} flexDirection={"column"}>
     <Grid xs={12} sm={12} md={6}>
     <Box sx={{width:'70%',marginLeft:'auto'}}>
-         {/* <Typography variant='h3' fontFamily={'serif'}>{productid.title}</Typography> */}
+        
          <Typography variant='h3' fontFamily={'serif'}>{title}</Typography>
-         {/* <Typography variant='h3' fontFamily={'serif'}>Cofffeee</Typography> */}
+         
          <Typography variant='h5' fontFamily={'serif'} sx={{color:'#b8784e'}}>Rs. {price}</Typography>
-         {/* <Typography variant='h5' fontFamily={'serif'} sx={{color:'#b8784e'}}>Rs. 445</Typography> */}
+         
          <br></br>
          <Typography variant='h6' fontFamily={'sans'}>Who can say no to a good mild espresso for someone who keep sipping espresso all through day. This special blend has been designed by our roasting team.</Typography>
+
          <Typography component="div" fontFamily={"serif"} >
          <div className='mt-3 mb-3' style={{fontFamily:'sans',fontSize:'large'}}>
             <li><strong> Origin:- </strong>60% Mandalkhan 30% HSD, 10% Monsoon Malabar.</li>
@@ -82,10 +72,29 @@ export default function Booking() {
           size="large"
           sx={{ width: "40%",fontFamily:'serif'}}
           color="firstnav"
-          href='/cart'
+          onClick={()=>{
+            setcart([...cart,{title,desc,price,url}]);
+            localStorage.setItem("item",JSON.stringify(cart));
+            // navigate('/cart');
+            console.log(cart);
+          }}
         >
           Add To Cart
         </Button>
+{/* <Button
+          variant="contained"
+          size="large"
+          sx={{ width: "40%",fontFamily:'serif'}}
+          color="firstnav"
+          onClick={()=>{
+            setcart([...cart,{title,desc,price,url}]);
+            localStorage.setItem("item",JSON.stringify(cart));
+            // navigate('/cart');
+            console.log(cart);
+          }}
+        >
+          Remove from Cart
+        </Button> */}
 <br></br>
 <br></br>
         
