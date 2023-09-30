@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import Login from "./components/Login";
 import Booking from "./components/Booking";
 import Cart from "./components/Cart";
+import Payment from "./components/Payment";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/booking/:id" element={<Booking />}/>
         <Route path="/cart" element={<Cart />}/>
+        <Route path="/payment" element={<Payment />}/>
         </Routes>
       </div>
     </ThemeProvider>
