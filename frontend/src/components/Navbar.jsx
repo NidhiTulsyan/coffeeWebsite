@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
-import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
-
+import { AppBar, Box, IconButton, Toolbar, Tooltip, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { CartContext } from "./Context";
 
 export default function Navbar() {
+
   const {cart} = useContext(CartContext)
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
@@ -95,15 +96,30 @@ export default function Navbar() {
         </Box>
 
         <Box flex={3} sx={{ display: "flex", justifyContent: "end" }}>
+
+        <Tooltip title="serach">
           <IconButton  >
             <SearchIcon sx={{ color: "white" }} fontSize="large" />
           </IconButton>
-          <IconButton href="/login">
+          </Tooltip>
+
+          <Tooltip title="user">
+          <IconButton href='/user-login'>
             <PersonOutlineIcon sx={{ color: "white" }} fontSize="large"  />
           </IconButton>
+          </Tooltip>
+
+          <Tooltip title="admin">
+          <IconButton href='/admin-login'>
+            <AdminPanelSettingsIcon sx={{ color: "white" }} fontSize="large"  />
+          </IconButton>
+          </Tooltip>
+
+          <Tooltip title="cart">
           <IconButton href="/cart">
             <ShoppingCartIcon sx={{ color: "white" }} fontSize="large" />
           </IconButton>
+          </Tooltip>
           <Typography variant="p">({cart.length})</Typography>
         </Box>
       </StyledToolbar>

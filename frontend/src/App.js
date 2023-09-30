@@ -18,7 +18,7 @@ function App() {
         <Navbar />
         <Routes>
         <Route path="/" element={<HomePage />}/>
-        <Route path="/login" element={<Login />}/>
+        <Route path="/user-login" element={<Login />}/>
         <Route path="/booking/:id" element={<Booking />}/>
         <Route path="/cart" element={<Cart />}/>
         <Route path="/payment" element={<Payment />}/>
