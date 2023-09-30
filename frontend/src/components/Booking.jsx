@@ -6,15 +6,28 @@ import Footer from './Footer';
 import { useNavigate, useParams } from 'react-router-dom';
 import {  CartContext } from './Context';
 
-export default function Booking({item}) {
+export default function Booking() {
+  
   const{cart,setcart} = useContext(CartContext);
   const navigate = useNavigate();
-    const id1 = useParams().id;
+
+  const id1 = useParams().id;
+
     const [title,settitle] = useState();
     const [price,setprice] = useState();
     const [desc,setdesc] = useState();
     const [url,seturl] = useState();
-   
+
+    const isOnItem = cart.some((i) => i.title === title);
+    // const isOnItem = Array.isArray(cart);
+    console.log("title is: ",title)
+    console.log("booking is on item" ,isOnItem);
+
+    const handleclick=(e)=>{
+      setcart(cart.filter((f)=>f.title !==title))
+      console.log(cart);
+       navigate("/cart") 
+    }
 
     useEffect(() => {
         fetch(`http://localhost:5000/product/${id1}`, {
@@ -66,34 +79,37 @@ export default function Booking({item}) {
          </div>
 </Typography>
 
-<Button
+
+        {!isOnItem ? (
+        <Button
           variant="contained"
           size="large"
-          sx={{ width: "40%",fontFamily:'serif'}}
+          sx={{ width: "100%",fontFamily:'serif' }}
           color="firstnav"
           onClick={()=>{
+            const obj={title,desc,price,url}
+            // setcart(cart.push(obj));
             setcart([...cart,{title,desc,price,url}]);
             localStorage.setItem("item",JSON.stringify(cart));
             navigate('/cart');
             console.log(cart);
           }}
         >
-          Add To Cart
+          Add to Cart
         </Button>
-{/* <Button
+        ):(
+        <Button
           variant="contained"
           size="large"
-          sx={{ width: "40%",fontFamily:'serif'}}
+          sx={{ width: "100%",fontFamily:'serif' }}
           color="firstnav"
-          onClick={()=>{
-            setcart([...cart,{title,desc,price,url}]);
-            localStorage.setItem("item",JSON.stringify(cart));
-            // navigate('/cart');
-            console.log(cart);
-          }}
+          id={title}
+          onClick={handleclick}
         >
-          Remove from Cart
-        </Button> */}
+          remove to Cart
+        </Button>
+        )}
+
 <br></br>
 <br></br>
         

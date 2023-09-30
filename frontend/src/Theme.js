@@ -23,5 +23,8 @@ export default createTheme({
     background: {
       default: '#fff',
     },
+    btn:{
+      main:'#6C3428',
+    }
   },
 })

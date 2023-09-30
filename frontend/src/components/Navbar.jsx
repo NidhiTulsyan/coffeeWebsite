@@ -1,13 +1,15 @@
-import React from "react";
-import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
+import React, { useContext } from "react";
+import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import { CartContext } from "./Context";
 
 export default function Navbar() {
+  const {cart} = useContext(CartContext)
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
     justifyContent: "space-between",
@@ -102,6 +104,7 @@ export default function Navbar() {
           <IconButton href="/cart">
             <ShoppingCartIcon sx={{ color: "white" }} fontSize="large" />
           </IconButton>
+          <Typography variant="p">({cart.length})</Typography>
         </Box>
       </StyledToolbar>
     </AppBar>
