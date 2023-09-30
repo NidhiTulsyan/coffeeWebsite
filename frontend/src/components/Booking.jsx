@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import "../Style.css";
 import Usp from "./Usp";
 import Footer from './Footer';
-import { getcoffeebyid } from '../api-helpers-axios/api-helpers';
 import { useNavigate, useParams } from 'react-router-dom';
 import {  CartContext } from './Context';
 
@@ -75,7 +74,7 @@ export default function Booking({item}) {
           onClick={()=>{
             setcart([...cart,{title,desc,price,url}]);
             localStorage.setItem("item",JSON.stringify(cart));
-            // navigate('/cart');
+            navigate('/cart');
             console.log(cart);
           }}
         >
@@ -98,7 +97,7 @@ export default function Booking({item}) {
 <br></br>
 <br></br>
         
-        <img src="https://cdn.shopify.com/s/files/1/0599/8342/9827/files/New_Project_38.png" />
+        <img src="https://cdn.shopify.com/s/files/1/0599/8342/9827/files/New_Project_38.png" alt='..'/>
        
   
     </Box>

@@ -8,7 +8,7 @@ export default function Cart() {
   return (
     <div className='mx-5'>
     <Typography variant='h4' textAlign={'center'} marginBottom={4} marginTop={5}>Your cart</Typography>
-    {cart.length==0?(<Typography variant='h6' textAlign={'center'} marginBottom={4}fontFamily={"serif"} marginTop={5}>Your Cart is Empty.....!</Typography>):(<Box sx={{ flexGrow: 1 }} display="block" marginBottom={4} marginTop={5}>
+    {cart.length===0?(<Typography variant='h6' textAlign={'center'} marginBottom={4}fontFamily={"serif"} marginTop={5}>Your Cart is Empty.....!</Typography>):(<Box sx={{ flexGrow: 1 }} display="block" marginBottom={4} marginTop={5}>
           <Grid container spacing={2}>
     { cart.map((item)=>{
       
