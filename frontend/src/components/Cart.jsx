@@ -25,7 +25,7 @@ export default function Cart() {
     </Grid>
     </Box>)}
 
-    <Button
+   {cart.length !==0 &&  (<Button
     className='mb-5 '
           variant="contained"
           href='/payment'
@@ -34,7 +34,7 @@ export default function Cart() {
           color="btn"
         >
           Buy Now
-        </Button>
+        </Button>)}
     </div>
   )
 }
