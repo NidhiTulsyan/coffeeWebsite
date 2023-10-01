@@ -42,9 +42,6 @@ const navigate= useNavigate();
          }
     }
 
-    // const handleloginclick =()=>{
-    
-    // }
 
   return (
     <Box flexGrow={1} display={"flex"} flexDirection={"row"} justifyContent={"space-evenly"}>
@@ -78,7 +75,7 @@ const navigate= useNavigate();
                 <TextField variant="outlined" placeholder="Enter Your Email" name="email" value={input.email} onChange={handlechange}  fullWidth="true" sx={{width:'70%'}}></TextField>
             </Box>
             <Box className="my-4 ">
-                <TextField variant="outlined" placeholder="Enter Your Password" name="password" value={input.password} onChange={handlechange}  fullWidth="true" sx={{width:'70%'}}></TextField>
+                <TextField variant="outlined" placeholder="Enter Your Password" type="password" name="password" value={input.password} onChange={handlechange}  fullWidth="true" sx={{width:'70%'}}></TextField>
             </Box>
             <Box className="my-4 ">
                 <Typography>Forget Your Password?</Typography>

@@ -85,6 +85,7 @@ export default function Adminlog() {
               <Box className="my-4 ">
                 <TextField
                   variant="outlined"
+                  type="password"
                   placeholder="Enter Your Password"
                   name="password"
                   value={input.password}
