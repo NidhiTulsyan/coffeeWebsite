@@ -1,5 +1,6 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { AddCoffeeByAdmin } from "../api-helpers-axios/api-helpers";
 
 export default function AddCoffee() {
   const [input, setinput] = useState({
@@ -16,7 +17,17 @@ export default function AddCoffee() {
   };
   const handlesubmit = (e) => {
     e.preventDefault();
+    AddCoffeeByAdmin(input).then((data)=>{
+        console.log(data.product);
+        alert("coffee product added successfully");
+    })
     console.log(input);
+    setinput({
+        title: "",
+    description: "",
+    price: "",
+    productUrl: "",
+})
   };
   return (
     <div className="text-center">

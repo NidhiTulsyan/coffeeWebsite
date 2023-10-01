@@ -13,6 +13,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import styled from "@emotion/styled";
 import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "./Context";
@@ -185,16 +186,16 @@ export default function Navbar() {
 
           {localStorage.getItem("adminlogin") && 
           <>
-          <Tooltip title="admin">
-                <IconButton href="/admin-login">
-                  <AdminPanelSettingsIcon
+          <Tooltip title="admin-profile">
+                <IconButton href="/admin-profile">
+                  <AccountCircleIcon
                     sx={{ color: "white" }}
                     fontSize="large"
                   />
                 </IconButton>
               </Tooltip>
           <Tooltip title="add-Coffee">
-                <IconButton href="/user-login">
+                <IconButton href="/add-coffee">
                   <AddBusinessIcon sx={{ color: "white" }} fontSize="large" />
                 </IconButton>
               </Tooltip>

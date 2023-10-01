@@ -11,6 +11,7 @@ import Payment from "./components/Payment";
 
 import Adminlog from "./components/Adminlog";
 import AddCoffee from "./components/AddCoffee";
+import AdminProfile from "./components/AdminProfile";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/payment" element={<Payment />}/>
         <Route path="/admin-login" element={<Adminlog />}/>
         <Route path="/add-coffee" element={<AddCoffee />}/>
+        <Route path="/admin-profile" element={<AdminProfile />}/>
         </Routes>
       </div>
     </ThemeProvider>

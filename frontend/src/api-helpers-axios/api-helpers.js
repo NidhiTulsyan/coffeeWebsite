@@ -62,3 +62,22 @@ password:data.password
   const usersignup = await res.data;
   return usersignup;
 }
+
+export const AddCoffeeByAdmin = async(data)=>{
+  const res = await axios.post("/product/addproduct",{
+    title:data.title,
+    description:data.description,
+    productUrl:data.productUrl,
+    price:data.price
+  },{
+    headers:{
+      token:`${localStorage.getItem("admintoken")}`
+    }
+  }).catch((err)=>console.log(err));
+
+  if (res.status !== 200) {
+    return console.log("Unexpected Error Occured");
+  }
+  const Addcoffee = await res.data;
+  return Addcoffee;
+}
