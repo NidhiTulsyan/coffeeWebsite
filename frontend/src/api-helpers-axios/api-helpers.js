@@ -10,7 +10,7 @@ export const getallcoffee = async()=>{
 }
 
 export const getcoffeebyid = async(id)=>{
-  const res = await axios.get(`/product/${id}`).catch((err) => {
+  const res = await axios.get(`/product/coffee/${id}`).catch((err) => {
     console.log(err);
   });
   if (res.status !== 200) {
@@ -81,3 +81,23 @@ export const AddCoffeeByAdmin = async(data)=>{
   const Addcoffee = await res.data;
   return Addcoffee;
 }
+
+
+export const productsbyadminid= async(data)=>{
+  const res = await axios.get("/product/prodadmin").catch((err)=>console.log(err));
+
+  if (res.status !== 200) {
+    return console.log("Unexpected Error Occured");
+  }
+  const Addcoffee = await res.data;
+  return Addcoffee;
+}
+
+export const deletecoffeebyid = async(id)=>{
+  const res = await axios.delete(`/product/coffeeDeleted/${id}`).catch((err)=>console.log(err));
+  if (res.status !== 200) {
+    return console.log("Unexpected Error Occured");
+  }
+  const coffeeDeleted = await res.data;
+  return coffeeDeleted;
+} 

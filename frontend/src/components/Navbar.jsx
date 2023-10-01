@@ -6,6 +6,7 @@ import {
   Toolbar,
   Tooltip,
   Typography,
+  Link
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -14,9 +15,11 @@ import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import styled from "@emotion/styled";
-import { Link, useNavigate } from "react-router-dom";
+import { Link as Linkk , useNavigate } from "react-router-dom";
 import { CartContext } from "./Context";
+import '../Style.css';
 
 export default function Navbar() {
   const { cart} = useContext(CartContext);
@@ -64,18 +67,20 @@ export default function Navbar() {
 
   return (
     <AppBar color="nav" position="static" sx={{ height: "100px" }}>
+    
       <StyledToolbar>
         <Box flex={3}>
-          <Link to={"/"}>
+          <Linkk to={"/"}>
             <img
               src="https://www.roasterycoffee.co.in/cdn/shop/files/cropped-AnyConv-removebg-preview1-1.png?v=1635507881"
               width={100}
               alt="..."
             />
-          </Link>
+          </Linkk>
         </Box>
 
         <Box flex={6} sx={{ display: "flex", justifyContent: "space-evenly" }}>
+          <Link href="all-coffee" color={"inherit"} underline="none" className="lhover">
           <p
             style={{
               fontSize: "14px",
@@ -83,9 +88,12 @@ export default function Navbar() {
               fontWeight: "500",
               textTransform: "uppercase",
             }}
+            
           >
             Coffee Beans
           </p>
+          </Link>
+          <Link href="all-coffee" color={"inherit"} underline="none" className="lhover">
           <p
             style={{
               fontSize: "14px",
@@ -96,6 +104,10 @@ export default function Navbar() {
           >
             Insta Pour Coffee
           </p>
+          </Link>
+
+          <Link href="all-coffee" color={"inherit"} underline="none" className="lhover">
+
           <p
             style={{
               fontSize: "14px",
@@ -106,6 +118,10 @@ export default function Navbar() {
           >
             Coffee Equipments
           </p>
+          </Link>
+
+          <Link href="all-coffee" color={"inherit"} underline="none" className="lhover">
+
           <p
             style={{
               fontSize: "14px",
@@ -116,6 +132,10 @@ export default function Navbar() {
           >
             Chocolate
           </p>
+          </Link>
+
+          <Link href="all-coffee" color={"inherit"} underline="none" className="lhover">
+
           <p
             style={{
               fontSize: "14px",
@@ -126,6 +146,10 @@ export default function Navbar() {
           >
             Brewing Guide
           </p>
+          </Link>
+
+          <Link href="all-coffee" color={"inherit"} underline="none" className="lhover">
+
           <p
             style={{
               fontSize: "14px",
@@ -136,6 +160,8 @@ export default function Navbar() {
           >
             About Us
           </p>
+          </Link>
+
         </Box>
 
         <Box flex={3} sx={{ display: "flex", justifyContent: "end" }}>
@@ -147,8 +173,8 @@ export default function Navbar() {
           {localStorage.getItem("userlogin") && (
             <>
             <Tooltip title="user">
-                <IconButton href="/user-login">
-                  <PersonOutlineIcon sx={{ color: "white" }} fontSize="large" />
+                <IconButton href="/user-profile">
+                  <AccountBoxIcon sx={{ color: "white" }} fontSize="large" />
                 </IconButton>
               </Tooltip>
               <Tooltip title="logout">

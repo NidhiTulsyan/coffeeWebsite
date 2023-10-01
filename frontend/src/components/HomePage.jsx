@@ -13,9 +13,6 @@ export default function HomePage() {
 getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(err))
 
   },[])
-
- 
-
   return (
     <div>
       <div
@@ -85,7 +82,7 @@ getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(e
         </Typography>
         <Box sx={{ flexGrow: 1 }} display="block" marginBottom={4}>
           <Grid container spacing={2}>
-          {products.map((item)=>{
+          {products.slice(0,4).map((item)=>{
             return <Card1  item={item} key={item._id} id={item._id} title={item.title} desc={item.description} price={item.price} url={item.productUrl} />
           })}
             

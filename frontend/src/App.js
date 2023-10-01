@@ -12,6 +12,8 @@ import Payment from "./components/Payment";
 import Adminlog from "./components/Adminlog";
 import AddCoffee from "./components/AddCoffee";
 import AdminProfile from "./components/AdminProfile";
+import AllCoffee from "./components/AllCoffee";
+import UserProfile from "./components/UserProfile";
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Route path="/admin-login" element={<Adminlog />}/>
         <Route path="/add-coffee" element={<AddCoffee />}/>
         <Route path="/admin-profile" element={<AdminProfile />}/>
+        <Route path="/user-profile" element={<UserProfile />}/>
+        <Route path="/all-coffee" element={<AllCoffee />}/>
         </Routes>
       </div>
     </ThemeProvider>
