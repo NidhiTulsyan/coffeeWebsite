@@ -21,21 +21,24 @@ const navigate= useNavigate();
         e.preventDefault();
 
         if(login){
-          getuserlogin(input).then((data)=>console.log(data.id))
+          getuserlogin(input).then((data)=>{
+            console.log(data.id)
+            localStorage.setItem("userlogin",true);
+            console.log("logged in");
+            alert("login successfull");
+            navigate('/');
+          })
           .catch((err) => console.log(err));
-          localStorage.setItem("userlogin",true);
-          console.log("logged in");
-          alert("login successfull");
-          // console.log("context login",userlogin);
-          navigate('/');
          }
          else{
-          getusersignup(input).then((data)=>console.log(data.users))
+          getusersignup(input).then((data)=>{
+            console.log(data.users)
+            console.log("register");
+            alert("sign up successfull...now login");
+            navigate('/user-login');
+          })
           .catch((err) => console.log(err));
-          // localStorage.setItem("usersignup",true);
-          console.log("register");
-          alert("sign up successfull...now login");
-          navigate('/user-login');
+          
          }
     }
 

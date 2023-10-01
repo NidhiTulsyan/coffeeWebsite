@@ -10,6 +10,7 @@ import Cart from "./components/Cart";
 import Payment from "./components/Payment";
 
 import Adminlog from "./components/Adminlog";
+import AddCoffee from "./components/AddCoffee";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/cart" element={<Cart />}/>
         <Route path="/payment" element={<Payment />}/>
         <Route path="/admin-login" element={<Adminlog />}/>
+        <Route path="/add-coffee" element={<AddCoffee />}/>
         </Routes>
       </div>
     </ThemeProvider>

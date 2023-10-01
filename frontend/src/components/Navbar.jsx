@@ -11,12 +11,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import LogoutIcon from '@mui/icons-material/Logout';
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "./Context";
 
 export default function Navbar() {
-  const { cart, userlogin } = useContext(CartContext);
+  const { cart} = useContext(CartContext);
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
     justifyContent: "space-between",
@@ -24,14 +26,40 @@ export default function Navbar() {
     color: "white",
     marginRight: "4px",
   });
-  var login;
-  function loginf(){
-   login =localStorage.getItem("userlogin");
+  const navigate = useNavigate();
+  var ulogin;
+  var alogin;
+  function loginuf(){
+   ulogin =localStorage.getItem("userlogin");
+   return ulogin;
+  }
+  function loginaf(){
+   alogin =localStorage.getItem("adminlogin");
+   return  alogin;
   }
   useEffect(()=>{
-    loginf();
-    console.log("login " ,login);
+    loginuf();
+    console.log("user login " ,ulogin);
   },[localStorage.getItem("userlogin")])
+
+  useEffect(()=>{
+    loginaf();
+    console.log("admin login " ,alogin);
+  },[localStorage.getItem("adminlogin")])
+
+  const handlelogout = ()=>{
+    if(alogin){
+      localStorage.removeItem("adminlogin")
+      localStorage.removeItem("admintoken")
+      alert("admin logged out");
+      navigate('/');
+    }
+    else{
+      localStorage.removeItem("userlogin")
+      alert("user logged out");
+      navigate('/');
+    }
+  }
 
   return (
     <AppBar color="nav" position="static" sx={{ height: "100px" }}>
@@ -122,6 +150,11 @@ export default function Navbar() {
                   <PersonOutlineIcon sx={{ color: "white" }} fontSize="large" />
                 </IconButton>
               </Tooltip>
+              <Tooltip title="logout">
+                <IconButton onClick={handlelogout}>
+                  <LogoutIcon sx={{ color: "white" }} fontSize="large" />
+                </IconButton>
+              </Tooltip>
 
               <Tooltip title="cart">
                 <IconButton href="/cart">
@@ -129,9 +162,10 @@ export default function Navbar() {
                 </IconButton>
               </Tooltip>
               <Typography variant="p">({cart.length})</Typography>
+              
             </>
           )}
-          {!localStorage.getItem("userlogin") && (
+          {!localStorage.getItem("userlogin") && !localStorage.getItem("adminlogin") && (
             <>
             <Tooltip title="user">
                 <IconButton href="/user-login">
@@ -148,6 +182,29 @@ export default function Navbar() {
               </Tooltip>
             </>
           )}
+
+          {localStorage.getItem("adminlogin") && 
+          <>
+          <Tooltip title="admin">
+                <IconButton href="/admin-login">
+                  <AdminPanelSettingsIcon
+                    sx={{ color: "white" }}
+                    fontSize="large"
+                  />
+                </IconButton>
+              </Tooltip>
+          <Tooltip title="add-Coffee">
+                <IconButton href="/user-login">
+                  <AddBusinessIcon sx={{ color: "white" }} fontSize="large" />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="logout">
+                <IconButton onClick={handlelogout}>
+                  <LogoutIcon sx={{ color: "white" }} fontSize="large" />
+                </IconButton>
+              </Tooltip>
+          </>
+          }
           
         </Box>
       </StyledToolbar>

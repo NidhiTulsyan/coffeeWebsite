@@ -3,9 +3,12 @@ import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
+import { getadminlogin } from "../api-helpers-axios/api-helpers";
 
 export default function Adminlog() {
+    const navigate = useNavigate();
   const [input, setinput] = useState({ email: "", password: "" });
+  const [login ,setLogin] = useState(false);
 
     const handlechange = (e) => {
       setinput((prev) => ({
@@ -15,7 +18,19 @@ export default function Adminlog() {
 
       const handlesubmit = (e) => {
         e.preventDefault();
-        console.log("sunmit");
+        if(!login){
+            getadminlogin(input).then((data)=>{
+                localStorage.setItem("admintoken",data.token);
+                localStorage.setItem("adminlogin",true);
+                console.log(data)
+                console.log("admin logged in");
+                alert("login successfull");
+                navigate('/');
+            })
+            .catch((err) => console.log(err));
+           
+           }
+           
       };
 
   return (

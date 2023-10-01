@@ -9,6 +9,8 @@ export default function Cart() {
   useEffect(() => {
     setTotal(cart.reduce((acc, curr) => acc + Number(curr.price), 0));
   }, [cart]);
+
+  
   
   return (
     <div className='mx-5'>

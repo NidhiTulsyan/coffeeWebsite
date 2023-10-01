@@ -35,7 +35,7 @@ password:data.password
   return userlogin;
 }
 export const getadminlogin = async(data)=>{
-  const res = await axios.post('/user/login',{
+  const res = await axios.post('/admin/login',{
 email:data.email,
 password:data.password
   }).catch((err)=>{
