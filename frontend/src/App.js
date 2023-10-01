@@ -8,7 +8,7 @@ import Login from "./components/Login";
 import Booking from "./components/Booking";
 import Cart from "./components/Cart";
 import Payment from "./components/Payment";
-import Adminlogin from "./components/Adminlogin";
+
 import Adminlog from "./components/Adminlog";
 
 
