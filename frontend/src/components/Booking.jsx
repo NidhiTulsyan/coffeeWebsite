@@ -21,6 +21,9 @@ export default function Booking() {
     const isOnItem = cart.some((i) => i.title === title);
     // const isOnItem = Array.isArray(cart);
     console.log("title is: ",title)
+    console.log("title is: ",url)
+    
+
     console.log("booking is on item" ,isOnItem);
 
     const handleclick=(e)=>{
@@ -30,7 +33,7 @@ export default function Booking() {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id1}`, {
+        fetch(`http://localhost:5000/product/coffee/${id1}`, {
           method: "GET",
         })
           .then((response) => response.json())
@@ -40,7 +43,7 @@ export default function Booking() {
             setdesc(data.product.description)
             seturl(data.product.productUrl)
             
-            console.log(data);
+            console.log(data.product);
           })
           .catch((error) => console.log(error));
       }, []);

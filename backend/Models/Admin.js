@@ -17,13 +17,6 @@ const adminSchema = new mongoose.Schema(
       required: true,
       minLength: 6,
     },
-    addProducts: [
-        { 
-            type: mongoose.Schema.Types.ObjectId, 
-            ref: "Product" 
-            
-        }
-    ],
   },
   {
     timestamps: true,
