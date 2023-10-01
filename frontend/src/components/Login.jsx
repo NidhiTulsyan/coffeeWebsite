@@ -1,6 +1,7 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 
 import React, { useState } from "react";
+import { getuserlogin } from "../api-helpers-axios/api-helpers";
 
 
 export default function Login() {
@@ -15,9 +16,23 @@ export default function Login() {
     }
     const handlesubmit = (e)=>{
         e.preventDefault();
-        console.log("hello");
+        // console.log("hello");
         console.log(input);
+        if(login){
+          getuserlogin(input).then((data)=>console.log(data.id))
+          .catch((err) => console.log(err));
+          localStorage.setItem("userlogin",true);
+          console.log("logged in");
+         }
+         else{
+          console.log("register");
+         }
     }
+
+    // const handleloginclick =()=>{
+    
+    // }
+
   return (
     <Box flexGrow={1} display={"flex"} flexDirection={"row"} justifyContent={"space-evenly"}>
       <Box  display={"flex"} >
@@ -63,7 +78,7 @@ export default function Login() {
             </Box>):
 
             (<Box className="my-4 " >
-                <Button  variant="contained" color="firstnav" fullWidth="True" sx={{width:'70%',height:'55px'}} href="/login">Back To Login</Button>
+                <Button  variant="contained" color="firstnav" fullWidth="True" sx={{width:'70%',height:'55px'}} href="/user-login">Back To Login</Button>
             </Box>)}
             </div>
             </form>
