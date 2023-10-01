@@ -10,7 +10,7 @@ export const CartContext = createContext();
 export default function Context({ children }) {
   const [cart, setcart] = useState(getInitialState);
   const [userlogin,setuserlogin] = useState(false);
-  const [adminlogin,setadminlogin] = useState(false);
+  const [adminlogin,setadminlogin] = useState();
 
   useEffect(() => {
     localStorage.setItem("item", JSON.stringify(cart));
@@ -20,9 +20,9 @@ export default function Context({ children }) {
 // localStorage.setItem("adminlogin",adminlogin);
 //   },[adminlogin])
 
-//   useEffect(()=>{
-// localStorage.setItem("")
-//   },[])
+ 
+
+
   return (
     <CartContext.Provider value={{ cart, setcart,userlogin,adminlogin,setadminlogin,setuserlogin }}>
       {children}

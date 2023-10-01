@@ -1,10 +1,13 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 
-import React, { useState } from "react";
-import { getuserlogin } from "../api-helpers-axios/api-helpers";
+import React, {  useState } from "react";
+import { getuserlogin, getusersignup } from "../api-helpers-axios/api-helpers";
+import { useNavigate } from "react-router-dom";
+
 
 
 export default function Login() {
+const navigate= useNavigate();
 
     const [login ,setLogin] = useState(true);
     const [input,setinput] = useState({name:"",email:"",password:""});
@@ -16,16 +19,23 @@ export default function Login() {
     }
     const handlesubmit = (e)=>{
         e.preventDefault();
-        // console.log("hello");
-        console.log(input);
+
         if(login){
           getuserlogin(input).then((data)=>console.log(data.id))
           .catch((err) => console.log(err));
           localStorage.setItem("userlogin",true);
           console.log("logged in");
+          alert("login successfull");
+          // console.log("context login",userlogin);
+          navigate('/');
          }
          else{
+          getusersignup(input).then((data)=>console.log(data.users))
+          .catch((err) => console.log(err));
+          // localStorage.setItem("usersignup",true);
           console.log("register");
+          alert("sign up successfull...now login");
+          navigate('/user-login');
          }
     }
 

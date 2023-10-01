@@ -34,3 +34,18 @@ password:data.password
   const userlogin = await res.data;
   return userlogin;
 }
+
+export const getusersignup = async(data)=>{
+  const res = await axios.post('/user/signup',{
+    name:data.name,
+email:data.email,
+password:data.password
+  }).catch((err)=>{
+    console.log(err);
+  })
+  if (res.status !== 200) {
+    return console.log("Unexpected Error Occured");
+  }
+  const usersignup = await res.data;
+  return usersignup;
+}

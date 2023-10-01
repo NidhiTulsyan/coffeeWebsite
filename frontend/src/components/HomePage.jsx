@@ -14,6 +14,8 @@ getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(e
 
   },[])
 
+ 
+
   return (
     <div>
       <div

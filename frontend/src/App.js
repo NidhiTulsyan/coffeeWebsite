@@ -8,6 +8,8 @@ import Login from "./components/Login";
 import Booking from "./components/Booking";
 import Cart from "./components/Cart";
 import Payment from "./components/Payment";
+import Adminlogin from "./components/Adminlogin";
+import Adminlog from "./components/Adminlog";
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
         <Route path="/booking/:id" element={<Booking />}/>
         <Route path="/cart" element={<Cart />}/>
         <Route path="/payment" element={<Payment />}/>
+        <Route path="/admin-login" element={<Adminlog />}/>
         </Routes>
       </div>
     </ThemeProvider>

@@ -1,35 +1,49 @@
-import React, { useContext } from "react";
-import { AppBar, Box, IconButton, Toolbar, Tooltip, Typography } from "@mui/material";
+import React, { useContext, useEffect } from "react";
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Toolbar,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { CartContext } from "./Context";
 
 export default function Navbar() {
-
-  const {cart} = useContext(CartContext)
+  const { cart, userlogin } = useContext(CartContext);
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
     justifyContent: "space-between",
     fontSize: "25px",
     color: "white",
     marginRight: "4px",
-  
   });
+  var login;
+  function loginf(){
+   login =localStorage.getItem("userlogin");
+  }
+  useEffect(()=>{
+    loginf();
+    console.log("login " ,login);
+  },[localStorage.getItem("userlogin")])
+
   return (
     <AppBar color="nav" position="static" sx={{ height: "100px" }}>
       <StyledToolbar>
-        <Box flex={3} >
-        <Link to={'/'}>
-          <img
-            src="https://www.roasterycoffee.co.in/cdn/shop/files/cropped-AnyConv-removebg-preview1-1.png?v=1635507881"
-            width={100}
-            alt="..."
-          />
-          </Link> 
+        <Box flex={3}>
+          <Link to={"/"}>
+            <img
+              src="https://www.roasterycoffee.co.in/cdn/shop/files/cropped-AnyConv-removebg-preview1-1.png?v=1635507881"
+              width={100}
+              alt="..."
+            />
+          </Link>
         </Box>
 
         <Box flex={6} sx={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -96,31 +110,45 @@ export default function Navbar() {
         </Box>
 
         <Box flex={3} sx={{ display: "flex", justifyContent: "end" }}>
-
-        <Tooltip title="serach">
-          <IconButton  >
-            <SearchIcon sx={{ color: "white" }} fontSize="large" />
-          </IconButton>
+          <Tooltip title="serach">
+            <IconButton>
+              <SearchIcon sx={{ color: "white" }} fontSize="large" />
+            </IconButton>
           </Tooltip>
+          {localStorage.getItem("userlogin") && (
+            <>
+            <Tooltip title="user">
+                <IconButton href="/user-login">
+                  <PersonOutlineIcon sx={{ color: "white" }} fontSize="large" />
+                </IconButton>
+              </Tooltip>
 
-          <Tooltip title="user">
-          <IconButton href='/user-login'>
-            <PersonOutlineIcon sx={{ color: "white" }} fontSize="large"  />
-          </IconButton>
-          </Tooltip>
-
-          <Tooltip title="admin">
-          <IconButton href='/admin-login'>
-            <AdminPanelSettingsIcon sx={{ color: "white" }} fontSize="large"  />
-          </IconButton>
-          </Tooltip>
-
-          <Tooltip title="cart">
-          <IconButton href="/cart">
-            <ShoppingCartIcon sx={{ color: "white" }} fontSize="large" />
-          </IconButton>
-          </Tooltip>
-          <Typography variant="p">({cart.length})</Typography>
+              <Tooltip title="cart">
+                <IconButton href="/cart">
+                  <ShoppingCartIcon sx={{ color: "white" }} fontSize="large" />
+                </IconButton>
+              </Tooltip>
+              <Typography variant="p">({cart.length})</Typography>
+            </>
+          )}
+          {!localStorage.getItem("userlogin") && (
+            <>
+            <Tooltip title="user">
+                <IconButton href="/user-login">
+                  <PersonOutlineIcon sx={{ color: "white" }} fontSize="large" />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="admin">
+                <IconButton href="/admin-login">
+                  <AdminPanelSettingsIcon
+                    sx={{ color: "white" }}
+                    fontSize="large"
+                  />
+                </IconButton>
+              </Tooltip>
+            </>
+          )}
+          
         </Box>
       </StyledToolbar>
     </AppBar>
