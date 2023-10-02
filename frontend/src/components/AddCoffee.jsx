@@ -1,8 +1,10 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AddCoffeeByAdmin } from "../api-helpers-axios/api-helpers";
+import { useNavigate } from "react-router-dom";
 
 export default function AddCoffee() {
+  const navigate = useNavigate();
   const [input, setinput] = useState({
     title: "",
     description: "",
@@ -17,18 +19,24 @@ export default function AddCoffee() {
   };
   const handlesubmit = (e) => {
     e.preventDefault();
-    AddCoffeeByAdmin(input).then((data)=>{
-        console.log(data.product);
-        alert("coffee product added successfully");
-    })
+    AddCoffeeByAdmin(input).then((data) => {
+      console.log(data.product);
+      alert("coffee product added successfully");
+    });
     console.log(input);
     setinput({
-        title: "",
-    description: "",
-    price: "",
-    productUrl: "",
-})
+      title: "",
+      description: "",
+      price: "",
+      productUrl: "",
+    });
   };
+  useEffect(()=>{
+    if(!localStorage.getItem("adminlogin")){
+      alert("logged in first to access this page");
+      navigate("/admin-login");
+    }
+    })
   return (
     <div className="text-center">
       <Box marginX={10}>
@@ -47,7 +55,6 @@ export default function AddCoffee() {
               fullWidth="true"
               sx={{ width: "70%" }}
               required
-
             ></TextField>
           </Box>
 
@@ -78,7 +85,6 @@ export default function AddCoffee() {
               fullWidth="true"
               sx={{ width: "70%" }}
               required
-
             ></TextField>
           </Box>
 
@@ -93,7 +99,6 @@ export default function AddCoffee() {
               fullWidth="true"
               sx={{ width: "70%" }}
               required
-
             ></TextField>
           </Box>
 

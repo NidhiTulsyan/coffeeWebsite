@@ -1,7 +1,15 @@
 import { Box, Grid, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function Payment() {
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if(!localStorage.getItem("userlogin")){
+      alert("logged in first to access profile");
+      navigate("/user-login");
+  }
+  })
   return (
     <div className='m-5'>
     <Box display={'flex'} flexDirection={'row'} justifyContent={'space-evenly'}>

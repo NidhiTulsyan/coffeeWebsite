@@ -2,10 +2,18 @@ import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from './Context'
 import { Box,Button,Grid, Typography } from '@mui/material';
 import Card1 from './Card';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
+  const navigate=useNavigate();
   const {cart} = useContext(CartContext);
   const [total, setTotal] = useState();
+  useEffect(()=>{
+    if(!localStorage.getItem("userlogin")){
+      alert("logged in first to access profile");
+      navigate("/user-login");
+  }
+  })
   useEffect(() => {
     setTotal(cart.reduce((acc, curr) => acc + Number(curr.price), 0));
   }, [cart]);
