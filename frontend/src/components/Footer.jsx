@@ -1,8 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 export default function Footer() {
   return (
     <>
@@ -33,14 +33,13 @@ export default function Footer() {
               fontFamily={"serif"}
               sx={{ color: "#b8784e" }}
             >
-             Follow Us
+              Follow Us
             </Typography>
-           <Box display={"flex"} >
-          <InstagramIcon />
-          <FacebookIcon />
-          <YouTubeIcon />
-        
-           </Box>
+            <Box display={"flex"}>
+              <InstagramIcon />
+              <FacebookIcon />
+              <YouTubeIcon />
+            </Box>
           </Grid>
         </Box>
         <Box flexGrow={1} display={"flex"} flexDirection={"column"}>

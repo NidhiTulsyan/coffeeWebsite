@@ -1,5 +1,5 @@
 import { Typography, Box, Grid, Button } from "@mui/material";
-import React, { useEffect, useState, } from "react";
+import React, { useEffect, useState } from "react";
 import Card1 from "./Card";
 import KeyOffering from "./KeyOffering";
 import "../Style.css";
@@ -7,12 +7,12 @@ import Usp from "./Usp";
 import Footer from "./Footer";
 import { getallcoffee } from "../api-helpers-axios/api-helpers.js";
 export default function HomePage() {
-
-  const [products,setProduct] = useState([]);
-  useEffect(()=>{
-getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(err))
-
-  },[])
+  const [products, setProduct] = useState([]);
+  useEffect(() => {
+    getallcoffee()
+      .then((data) => setProduct(data.product))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div>
       <div
@@ -82,10 +82,19 @@ getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(e
         </Typography>
         <Box sx={{ flexGrow: 1 }} display="block" marginBottom={4}>
           <Grid container spacing={2}>
-          {products.slice(0,4).map((item)=>{
-            return <Card1  item={item} key={item._id} id={item._id} title={item.title} desc={item.description} price={item.price} url={item.productUrl} />
-          })}
-            
+            {products.slice(0, 4).map((item) => {
+              return (
+                <Card1
+                  item={item}
+                  key={item._id}
+                  id={item._id}
+                  title={item.title}
+                  desc={item.description}
+                  price={item.price}
+                  url={item.productUrl}
+                />
+              );
+            })}
           </Grid>
         </Box>
       </div>
@@ -234,20 +243,23 @@ getallcoffee().then((data)=>setProduct(data.product)).catch((err)=>console.log(e
           <Typography variant="h4" textTransform={"uppercase"}>
             SUBSCRIBE OUR NEWSLETTER
           </Typography>
-          
+
           <Typography variant="p">
             Sign up for 10% off on your first order! Plus, get exclusive first
             access to new coffee launches.
           </Typography>
           <br />
           <br />
-          
-          <input type="email" style={{height:'45px',width:'60%'}} placeholder="Enter Your email"/>
+
+          <input
+            type="email"
+            style={{ height: "45px", width: "60%" }}
+            placeholder="Enter Your email"
+          />
           <Button
-            
             size="large"
             className="subbtn"
-            sx={{ backgroundColor: "#a35e0a", color: "white" ,}}
+            sx={{ backgroundColor: "#a35e0a", color: "white" }}
           >
             Subscribe
           </Button>
