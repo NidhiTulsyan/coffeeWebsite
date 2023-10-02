@@ -6,32 +6,32 @@ import { useNavigate } from "react-router-dom";
 import { getadminlogin } from "../api-helpers-axios/api-helpers";
 
 export default function Adminlog() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [input, setinput] = useState({ email: "", password: "" });
-  const [login ,setLogin] = useState(false);
+  const [login, setLogin] = useState(false);
 
-    const handlechange = (e) => {
-      setinput((prev) => ({
-        ...prev,
-        [e.target.name]: e.target.value,
-      }))};
+  const handlechange = (e) => {
+    setinput((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-      const handlesubmit = (e) => {
-        e.preventDefault();
-        if(!login){
-            getadminlogin(input).then((data)=>{
-                localStorage.setItem("admintoken",data.token);
-                localStorage.setItem("adminlogin",true);
-                console.log(data)
-                console.log("admin logged in");
-                alert("login successfull");
-                navigate('/');
-            })
-            .catch((err) => console.log(err));
-           
-           }
-           
-      };
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    if (!login) {
+      getadminlogin(input)
+        .then((data) => {
+          localStorage.setItem("admintoken", data.token);
+          localStorage.setItem("adminlogin", true);
+          // console.log(data)
+          // console.log("admin logged in");
+          alert("login successfull");
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
+    }
+  };
 
   return (
     <Box

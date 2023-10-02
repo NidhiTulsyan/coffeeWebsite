@@ -20,10 +20,10 @@ export default function AddCoffee() {
   const handlesubmit = (e) => {
     e.preventDefault();
     AddCoffeeByAdmin(input).then((data) => {
-      console.log(data.product);
+      // console.log(data.product);
       alert("coffee product added successfully");
     });
-    console.log(input);
+    // console.log(input);
     setinput({
       title: "",
       description: "",
@@ -31,12 +31,12 @@ export default function AddCoffee() {
       productUrl: "",
     });
   };
-  useEffect(()=>{
-    if(!localStorage.getItem("adminlogin")){
+  useEffect(() => {
+    if (!localStorage.getItem("adminlogin")) {
       alert("logged in first to access this page");
       navigate("/admin-login");
     }
-    })
+  });
   return (
     <div className="text-center">
       <Box marginX={10}>

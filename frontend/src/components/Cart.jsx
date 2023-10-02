@@ -10,7 +10,7 @@ export default function Cart() {
   const [total, setTotal] = useState();
   useEffect(()=>{
     if(!localStorage.getItem("userlogin")){
-      alert("logged in first to access profile");
+      alert("logged in first to access cart page");
       navigate("/user-login");
   }
   })
