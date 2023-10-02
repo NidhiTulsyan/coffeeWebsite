@@ -104,7 +104,6 @@ export const deletebyid = async (req, res, next) => {
   let id = req.params.id;
   try {
     prod = await Product.findByIdAndRemove(id);
-    
   } catch (error) {
     console.log(error);
   }
