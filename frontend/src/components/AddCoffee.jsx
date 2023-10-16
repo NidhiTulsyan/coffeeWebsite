@@ -20,7 +20,7 @@ export default function AddCoffee() {
   const handlesubmit = (e) => {
     e.preventDefault();
     AddCoffeeByAdmin(input).then((data) => {
-      // console.log(data.product);
+      
       alert("coffee product added successfully");
     });
     // console.log(input);
